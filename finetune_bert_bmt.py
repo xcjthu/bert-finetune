@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score, f1_score
 import bmtrain as bmt
 
 from model_center import get_args
-from model_center.model import Bert
+from .BMTBert import Bert
 from model_center.tokenizer import BertTokenizer
 from model_center.dataset.bertdataset import DATASET
 from model_center.utils import print_inspect
