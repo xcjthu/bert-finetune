@@ -1,0 +1,117 @@
+python3 > -u -m torch.distributed.launch --nproc_per_node 8 --nnodes 1 --node_rank 0 --master_addr localhost --master_port 6002 .//finetune_bert_hf.py --model-version /data/home/scv0540/xcj/PLMs/bert-large-uncased --base-path ./ --dataset_name BoolQ --batch-size 11 --grad-accumulation 8 --lr 0.00001 --max-length 512 --train-iters 1400 --weight-decay 1e-2
+/data/home/scv0540/miniconda3/envs/bmpretrain/lib/python3.7/site-packages/torch/distributed/launch.py:186: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  FutureWarning,
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.bias', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.decoder.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+train | epoch   0 | Iter:      0/   108 | loss: 0.7004 | lr: 1.0000e-05 | time: 2.784 avg_time: 2.784 | acc: 0.5455
+train | epoch   0 | Iter:      1/   108 | loss: 0.7011 | lr: 1.0000e-05 | time: 1.098 avg_time: 1.941 | acc: 0.6364
+train | epoch   0 | Iter:      2/   108 | loss: 0.7139 | lr: 1.0000e-05 | time: 1.076 avg_time: 1.653 | acc: 0.4545
+train | epoch   0 | Iter:      3/   108 | loss: 0.7009 | lr: 1.0000e-05 | time: 1.075 avg_time: 1.508 | acc: 0.5455
+train | epoch   0 | Iter:      4/   108 | loss: 0.6854 | lr: 1.0000e-05 | time: 1.089 avg_time: 1.425 | acc: 0.6364
+train | epoch   0 | Iter:      5/   108 | loss: 0.7022 | lr: 1.0000e-05 | time: 1.080 avg_time: 1.367 | acc: 0.4545
+train | epoch   0 | Iter:      6/   108 | loss: 0.6931 | lr: 1.0000e-05 | time: 1.079 avg_time: 1.326 | acc: 0.5455
+train | epoch   0 | Iter:      7/   108 | loss: 0.7057 | lr: 1.0000e-05 | time: 1.130 avg_time: 1.302 | acc: 0.3636
+train | epoch   0 | Iter:      8/   108 | loss: 0.6864 | lr: 1.0000e-05 | time: 1.095 avg_time: 1.279 | acc: 0.2727
+train | epoch   0 | Iter:      9/   108 | loss: 0.6908 | lr: 1.0000e-05 | time: 1.083 avg_time: 1.259 | acc: 0.5455
+train | epoch   0 | Iter:     10/   108 | loss: 0.7036 | lr: 1.0000e-05 | time: 1.082 avg_time: 1.243 | acc: 0.3636
+train | epoch   0 | Iter:     11/   108 | loss: 0.6784 | lr: 1.0000e-05 | time: 1.082 avg_time: 1.229 | acc: 0.7273
+train | epoch   0 | Iter:     12/   108 | loss: 0.6938 | lr: 1.0000e-05 | time: 1.081 avg_time: 1.218 | acc: 0.5455
+train | epoch   0 | Iter:     13/   108 | loss: 0.6992 | lr: 1.0000e-05 | time: 1.083 avg_time: 1.208 | acc: 0.5455
+train | epoch   0 | Iter:     14/   108 | loss: 0.6896 | lr: 1.0000e-05 | time: 1.082 avg_time: 1.200 | acc: 0.1818
+train | epoch   0 | Iter:     15/   108 | loss: 0.6799 | lr: 1.0000e-05 | time: 1.129 avg_time: 1.196 | acc: 0.6364
+train | epoch   0 | Iter:     16/   108 | loss: 0.6918 | lr: 1.0000e-05 | time: 1.083 avg_time: 1.189 | acc: 0.4545
+train | epoch   0 | Iter:     17/   108 | loss: 0.7039 | lr: 1.0000e-05 | time: 1.087 avg_time: 1.183 | acc: 0.4545
+train | epoch   0 | Iter:     18/   108 | loss: 0.6589 | lr: 1.0000e-05 | time: 1.085 avg_time: 1.178 | acc: 0.6364
+train | epoch   0 | Iter:     19/   108 | loss: 0.7025 | lr: 1.0000e-05 | time: 1.082 avg_time: 1.173 | acc: 0.3636
+train | epoch   0 | Iter:     20/   108 | loss: 0.7045 | lr: 1.0000e-05 | time: 1.086 avg_time: 1.169 | acc: 0.4545
+train | epoch   0 | Iter:     21/   108 | loss: 0.6750 | lr: 1.0000e-05 | time: 1.082 avg_time: 1.165 | acc: 0.7273
+train | epoch   0 | Iter:     22/   108 | loss: 0.6818 | lr: 1.0000e-05 | time: 1.084 avg_time: 1.162 | acc: 0.3636
+train | epoch   0 | Iter:     23/   108 | loss: 0.6560 | lr: 1.0000e-05 | time: 1.132 avg_time: 1.160 | acc: 0.5455
+train | epoch   0 | Iter:     24/   108 | loss: 0.6547 | lr: 1.0000e-05 | time: 1.099 avg_time: 1.158 | acc: 0.6364
+train | epoch   0 | Iter:     25/   108 | loss: 0.7193 | lr: 1.0000e-05 | time: 1.085 avg_time: 1.155 | acc: 0.2727
+train | epoch   0 | Iter:     26/   108 | loss: 0.6889 | lr: 1.0000e-05 | time: 1.086 avg_time: 1.153 | acc: 0.4545
+train | epoch   0 | Iter:     27/   108 | loss: 0.6746 | lr: 1.0000e-05 | time: 1.087 avg_time: 1.150 | acc: 0.6364
+train | epoch   0 | Iter:     28/   108 | loss: 0.6584 | lr: 1.0000e-05 | time: 1.091 avg_time: 1.148 | acc: 0.8182
+train | epoch   0 | Iter:     29/   108 | loss: 0.6844 | lr: 1.0000e-05 | time: 1.090 avg_time: 1.146 | acc: 0.7273
+train | epoch   0 | Iter:     30/   108 | loss: 0.7082 | lr: 1.0000e-05 | time: 1.089 avg_time: 1.144 | acc: 0.4545
+train | epoch   0 | Iter:     31/   108 | loss: 0.6734 | lr: 1.0000e-05 | time: 1.135 avg_time: 1.144 | acc: 0.6364
+train | epoch   0 | Iter:     32/   108 | loss: 0.6624 | lr: 1.0000e-05 | time: 1.112 avg_time: 1.143 | acc: 0.7273
+train | epoch   0 | Iter:     33/   108 | loss: 0.6730 | lr: 1.0000e-05 | time: 1.091 avg_time: 1.142 | acc: 0.5455
+train | epoch   0 | Iter:     34/   108 | loss: 0.6493 | lr: 1.0000e-05 | time: 1.088 avg_time: 1.140 | acc: 0.8182
+train | epoch   0 | Iter:     35/   108 | loss: 0.6559 | lr: 1.0000e-05 | time: 1.089 avg_time: 1.139 | acc: 0.7273
+train | epoch   0 | Iter:     36/   108 | loss: 0.6558 | lr: 1.0000e-05 | time: 1.091 avg_time: 1.137 | acc: 0.5455
+train | epoch   0 | Iter:     37/   108 | loss: 0.6674 | lr: 1.0000e-05 | time: 1.097 avg_time: 1.136 | acc: 0.8182
+train | epoch   0 | Iter:     38/   108 | loss: 0.6744 | lr: 1.0000e-05 | time: 1.093 avg_time: 1.135 | acc: 0.5455
+train | epoch   0 | Iter:     39/   108 | loss: 0.6628 | lr: 1.0000e-05 | time: 1.134 avg_time: 1.135 | acc: 0.6364
+train | epoch   0 | Iter:     40/   108 | loss: 0.6749 | lr: 1.0000e-05 | time: 1.113 avg_time: 1.135 | acc: 0.8182
+train | epoch   0 | Iter:     41/   108 | loss: 0.6815 | lr: 1.0000e-05 | time: 1.093 avg_time: 1.134 | acc: 0.4545
+train | epoch   0 | Iter:     42/   108 | loss: 0.6584 | lr: 1.0000e-05 | time: 1.090 avg_time: 1.133 | acc: 0.6364
+train | epoch   0 | Iter:     43/   108 | loss: 0.6246 | lr: 1.0000e-05 | time: 1.088 avg_time: 1.132 | acc: 0.5455
+train | epoch   0 | Iter:     44/   108 | loss: 0.6368 | lr: 1.0000e-05 | time: 1.090 avg_time: 1.131 | acc: 0.4545
+train | epoch   0 | Iter:     45/   108 | loss: 0.6757 | lr: 1.0000e-05 | time: 1.089 avg_time: 1.130 | acc: 0.7273
+train | epoch   0 | Iter:     46/   108 | loss: 0.7306 | lr: 1.0000e-05 | time: 1.095 avg_time: 1.129 | acc: 0.3636
+train | epoch   0 | Iter:     47/   108 | loss: 0.7059 | lr: 1.0000e-05 | time: 1.137 avg_time: 1.129 | acc: 0.4545
+train | epoch   0 | Iter:     48/   108 | loss: 0.6864 | lr: 1.0000e-05 | time: 1.087 avg_time: 1.128 | acc: 0.3636
+train | epoch   0 | Iter:     49/   108 | loss: 0.6452 | lr: 1.0000e-05 | time: 1.090 avg_time: 1.128 | acc: 0.9091
+train | epoch   0 | Iter:     50/   108 | loss: 0.6687 | lr: 1.0000e-05 | time: 1.089 avg_time: 1.127 | acc: 0.7273
+train | epoch   0 | Iter:     51/   108 | loss: 0.6678 | lr: 1.0000e-05 | time: 1.093 avg_time: 1.126 | acc: 0.6364
+train | epoch   0 | Iter:     52/   108 | loss: 0.6583 | lr: 1.0000e-05 | time: 1.096 avg_time: 1.126 | acc: 0.6364
+train | epoch   0 | Iter:     53/   108 | loss: 0.6695 | lr: 1.0000e-05 | time: 1.096 avg_time: 1.125 | acc: 0.5455
+train | epoch   0 | Iter:     54/   108 | loss: 0.6525 | lr: 1.0000e-05 | time: 1.093 avg_time: 1.124 | acc: 0.5455
+train | epoch   0 | Iter:     55/   108 | loss: 0.6647 | lr: 1.0000e-05 | time: 1.141 avg_time: 1.125 | acc: 0.6364
+train | epoch   0 | Iter:     56/   108 | loss: 0.7048 | lr: 1.0000e-05 | time: 1.092 avg_time: 1.124 | acc: 0.3636
+train | epoch   0 | Iter:     57/   108 | loss: 0.7066 | lr: 1.0000e-05 | time: 1.090 avg_time: 1.124 | acc: 0.3636
+train | epoch   0 | Iter:     58/   108 | loss: 0.6667 | lr: 1.0000e-05 | time: 1.093 avg_time: 1.123 | acc: 0.4545
+train | epoch   0 | Iter:     59/   108 | loss: 0.6916 | lr: 1.0000e-05 | time: 1.092 avg_time: 1.123 | acc: 0.5455
+train | epoch   0 | Iter:     60/   108 | loss: 0.6849 | lr: 1.0000e-05 | time: 1.090 avg_time: 1.122 | acc: 0.8182
+train | epoch   0 | Iter:     61/   108 | loss: 0.6580 | lr: 1.0000e-05 | time: 1.090 avg_time: 1.121 | acc: 0.7273
+slurmstepd: error: *** JOB 159876 ON g0019 CANCELLED AT 2022-03-20T23:38:04 ***

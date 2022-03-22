@@ -1,0 +1,333 @@
+python3 > -u -m torch.distributed.launch --nproc_per_node 8 --nnodes 1 --node_rank 0 --master_addr localhost --master_port 6002 .//finetune_bert_hf.py --model-version /data/home/scv0540/xcj/PLMs/bert-large-uncased --base-path ./ --dataset_name BoolQ --batch-size 14 --grad-accumulation 8 --lr 0.00001 --max-length 512 --train-iters 1400 --weight-decay 1e-2
+/data/home/scv0540/miniconda3/envs/bmpretrain/lib/python3.7/site-packages/torch/distributed/launch.py:186: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  FutureWarning,
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.decoder.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.bias', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertModel were not initialized from the model checkpoint at /data/home/scv0540/xcj/PLMs/bert-large-uncased and are newly initialized: ['bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+train | epoch   0 | Iter:      0/    85 | loss: 0.7113 | lr: 1.0000e-05 | time: 1.657 avg_time: 1.657 | acc: 0.3571
+train | epoch   0 | Iter:      1/    85 | loss: 0.7428 | lr: 1.0000e-05 | time: 0.522 avg_time: 1.089 | acc: 0.2143
+train | epoch   0 | Iter:      2/    85 | loss: 0.7228 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.895 | acc: 0.4286
+train | epoch   0 | Iter:      3/    85 | loss: 0.7035 | lr: 1.0000e-05 | time: 0.505 avg_time: 0.798 | acc: 0.5000
+train | epoch   0 | Iter:      4/    85 | loss: 0.7265 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.739 | acc: 0.4286
+train | epoch   0 | Iter:      5/    85 | loss: 0.7363 | lr: 1.0000e-05 | time: 0.505 avg_time: 0.700 | acc: 0.2857
+train | epoch   0 | Iter:      6/    85 | loss: 0.7374 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.673 | acc: 0.5000
+train | epoch   0 | Iter:      7/    85 | loss: 0.7223 | lr: 1.0000e-05 | time: 0.587 avg_time: 0.662 | acc: 0.1429
+train | epoch   0 | Iter:      8/    85 | loss: 0.7017 | lr: 1.0000e-05 | time: 0.515 avg_time: 0.646 | acc: 0.4286
+train | epoch   0 | Iter:      9/    85 | loss: 0.7039 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.632 | acc: 0.2857
+train | epoch   0 | Iter:     10/    85 | loss: 0.7089 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.621 | acc: 0.4286
+train | epoch   0 | Iter:     11/    85 | loss: 0.7094 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.611 | acc: 0.4286
+train | epoch   0 | Iter:     12/    85 | loss: 0.7068 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.603 | acc: 0.7143
+train | epoch   0 | Iter:     13/    85 | loss: 0.7125 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.596 | acc: 0.2857
+train | epoch   0 | Iter:     14/    85 | loss: 0.7035 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.590 | acc: 0.5000
+train | epoch   0 | Iter:     15/    85 | loss: 0.7180 | lr: 1.0000e-05 | time: 0.575 avg_time: 0.589 | acc: 0.6429
+train | epoch   0 | Iter:     16/    85 | loss: 0.7012 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.585 | acc: 0.4286
+train | epoch   0 | Iter:     17/    85 | loss: 0.7057 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.580 | acc: 0.4286
+train | epoch   0 | Iter:     18/    85 | loss: 0.6996 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.576 | acc: 0.5000
+train | epoch   0 | Iter:     19/    85 | loss: 0.6950 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.573 | acc: 0.4286
+train | epoch   0 | Iter:     20/    85 | loss: 0.7024 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.570 | acc: 0.3571
+train | epoch   0 | Iter:     21/    85 | loss: 0.6916 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.567 | acc: 0.4286
+train | epoch   0 | Iter:     22/    85 | loss: 0.6937 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.565 | acc: 0.3571
+train | epoch   0 | Iter:     23/    85 | loss: 0.6986 | lr: 1.0000e-05 | time: 0.574 avg_time: 0.565 | acc: 0.4286
+train | epoch   0 | Iter:     24/    85 | loss: 0.6971 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.563 | acc: 0.6429
+train | epoch   0 | Iter:     25/    85 | loss: 0.6830 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.561 | acc: 0.4286
+train | epoch   0 | Iter:     26/    85 | loss: 0.6831 | lr: 1.0000e-05 | time: 0.510 avg_time: 0.559 | acc: 0.5000
+train | epoch   0 | Iter:     27/    85 | loss: 0.6978 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.557 | acc: 0.4286
+train | epoch   0 | Iter:     28/    85 | loss: 0.6834 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.555 | acc: 0.5000
+train | epoch   0 | Iter:     29/    85 | loss: 0.6874 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.554 | acc: 0.3571
+train | epoch   0 | Iter:     30/    85 | loss: 0.6869 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.552 | acc: 0.5714
+train | epoch   0 | Iter:     31/    85 | loss: 0.7001 | lr: 1.0000e-05 | time: 0.575 avg_time: 0.553 | acc: 0.3571
+train | epoch   0 | Iter:     32/    85 | loss: 0.6800 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.551 | acc: 0.7143
+train | epoch   0 | Iter:     33/    85 | loss: 0.6740 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.550 | acc: 0.6429
+train | epoch   0 | Iter:     34/    85 | loss: 0.6803 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.549 | acc: 0.6429
+train | epoch   0 | Iter:     35/    85 | loss: 0.6888 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.548 | acc: 0.4286
+train | epoch   0 | Iter:     36/    85 | loss: 0.6848 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.547 | acc: 0.5000
+train | epoch   0 | Iter:     37/    85 | loss: 0.6921 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.546 | acc: 0.3571
+train | epoch   0 | Iter:     38/    85 | loss: 0.6811 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.545 | acc: 0.7857
+train | epoch   0 | Iter:     39/    85 | loss: 0.7030 | lr: 1.0000e-05 | time: 0.575 avg_time: 0.546 | acc: 0.4286
+train | epoch   0 | Iter:     40/    85 | loss: 0.6789 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.545 | acc: 0.6429
+train | epoch   0 | Iter:     41/    85 | loss: 0.6778 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.544 | acc: 0.5714
+train | epoch   0 | Iter:     42/    85 | loss: 0.6728 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.543 | acc: 0.6429
+train | epoch   0 | Iter:     43/    85 | loss: 0.6750 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.542 | acc: 0.5714
+train | epoch   0 | Iter:     44/    85 | loss: 0.6982 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.541 | acc: 0.3571
+train | epoch   0 | Iter:     45/    85 | loss: 0.6670 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.541 | acc: 0.2857
+train | epoch   0 | Iter:     46/    85 | loss: 0.6884 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.540 | acc: 0.6429
+train | epoch   0 | Iter:     47/    85 | loss: 0.7021 | lr: 1.0000e-05 | time: 0.554 avg_time: 0.540 | acc: 0.7143
+train | epoch   0 | Iter:     48/    85 | loss: 0.6697 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.540 | acc: 0.7143
+train | epoch   0 | Iter:     49/    85 | loss: 0.6599 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.539 | acc: 0.6429
+train | epoch   0 | Iter:     50/    85 | loss: 0.6670 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.538 | acc: 0.6429
+train | epoch   0 | Iter:     51/    85 | loss: 0.6871 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.538 | acc: 0.6429
+train | epoch   0 | Iter:     52/    85 | loss: 0.6719 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.537 | acc: 0.6429
+train | epoch   0 | Iter:     53/    85 | loss: 0.6548 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.537 | acc: 0.7143
+train | epoch   0 | Iter:     54/    85 | loss: 0.6797 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.536 | acc: 0.5000
+train | epoch   0 | Iter:     55/    85 | loss: 0.6781 | lr: 1.0000e-05 | time: 0.554 avg_time: 0.536 | acc: 0.6429
+train | epoch   0 | Iter:     56/    85 | loss: 0.6712 | lr: 1.0000e-05 | time: 0.505 avg_time: 0.536 | acc: 0.3571
+train | epoch   0 | Iter:     57/    85 | loss: 0.6572 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.535 | acc: 0.7857
+train | epoch   0 | Iter:     58/    85 | loss: 0.6765 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.535 | acc: 0.5714
+train | epoch   0 | Iter:     59/    85 | loss: 0.6847 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.534 | acc: 0.3571
+train | epoch   0 | Iter:     60/    85 | loss: 0.6878 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.534 | acc: 0.6429
+train | epoch   0 | Iter:     61/    85 | loss: 0.6891 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.533 | acc: 0.6429
+train | epoch   0 | Iter:     62/    85 | loss: 0.6976 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.533 | acc: 0.3571
+train | epoch   0 | Iter:     63/    85 | loss: 0.6734 | lr: 1.0000e-05 | time: 0.555 avg_time: 0.533 | acc: 0.5714
+train | epoch   0 | Iter:     64/    85 | loss: 0.6620 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.533 | acc: 0.6429
+train | epoch   0 | Iter:     65/    85 | loss: 0.6909 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.533 | acc: 0.4286
+train | epoch   0 | Iter:     66/    85 | loss: 0.6575 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.532 | acc: 0.7857
+train | epoch   0 | Iter:     67/    85 | loss: 0.6725 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.532 | acc: 0.6429
+train | epoch   0 | Iter:     68/    85 | loss: 0.6598 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.531 | acc: 0.5000
+train | epoch   0 | Iter:     69/    85 | loss: 0.6758 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.531 | acc: 0.5000
+train | epoch   0 | Iter:     70/    85 | loss: 0.6752 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.531 | acc: 0.6429
+train | epoch   0 | Iter:     71/    85 | loss: 0.6640 | lr: 1.0000e-05 | time: 0.555 avg_time: 0.531 | acc: 0.7857
+train | epoch   0 | Iter:     72/    85 | loss: 0.6525 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.531 | acc: 0.7857
+train | epoch   0 | Iter:     73/    85 | loss: 0.6829 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.530 | acc: 0.7857
+train | epoch   0 | Iter:     74/    85 | loss: 0.6855 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.530 | acc: 0.6429
+train | epoch   0 | Iter:     75/    85 | loss: 0.6787 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.530 | acc: 0.5000
+train | epoch   0 | Iter:     76/    85 | loss: 0.6642 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.529 | acc: 0.4286
+train | epoch   0 | Iter:     77/    85 | loss: 0.6406 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.529 | acc: 0.6429
+train | epoch   0 | Iter:     78/    85 | loss: 0.6804 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.529 | acc: 0.7143
+train | epoch   0 | Iter:     79/    85 | loss: 0.6665 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.529 | acc: 0.3571
+train | epoch   0 | Iter:     80/    85 | loss: 0.6968 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.529 | acc: 0.5000
+train | epoch   0 | Iter:     81/    85 | loss: 0.6767 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.529 | acc: 0.6429
+train | epoch   0 | Iter:     82/    85 | loss: 0.6575 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.528 | acc: 0.5000
+train | epoch   0 | Iter:     83/    85 | loss: 0.6541 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.528 | acc: 0.5714
+train | epoch   0 | Iter:     84/    85 | loss: 0.6525 | lr: 1.0000e-05 | time: 0.257 avg_time: 0.525 | acc: 0.5000
+dev | epoch   0 | Iter:      0/    30 | loss: 0.6295
+dev | epoch   0 | Iter:      1/    30 | loss: 0.7425
+dev | epoch   0 | Iter:      2/    30 | loss: 0.6639
+dev | epoch   0 | Iter:      3/    30 | loss: 0.5882
+dev | epoch   0 | Iter:      4/    30 | loss: 0.7039
+dev | epoch   0 | Iter:      5/    30 | loss: 0.6298
+dev | epoch   0 | Iter:      6/    30 | loss: 0.6930
+dev | epoch   0 | Iter:      7/    30 | loss: 0.6631
+dev | epoch   0 | Iter:      8/    30 | loss: 0.5934
+dev | epoch   0 | Iter:      9/    30 | loss: 0.7339
+dev | epoch   0 | Iter:     10/    30 | loss: 0.6791
+dev | epoch   0 | Iter:     11/    30 | loss: 0.5502
+dev | epoch   0 | Iter:     12/    30 | loss: 0.6137
+dev | epoch   0 | Iter:     13/    30 | loss: 0.6532
+dev | epoch   0 | Iter:     14/    30 | loss: 0.6903
+dev | epoch   0 | Iter:     15/    30 | loss: 0.6728
+dev | epoch   0 | Iter:     16/    30 | loss: 0.6958
+dev | epoch   0 | Iter:     17/    30 | loss: 0.5908
+dev | epoch   0 | Iter:     18/    30 | loss: 0.5772
+dev | epoch   0 | Iter:     19/    30 | loss: 0.6934
+dev | epoch   0 | Iter:     20/    30 | loss: 0.7530
+dev | epoch   0 | Iter:     21/    30 | loss: 0.6594
+dev | epoch   0 | Iter:     22/    30 | loss: 0.6732
+dev | epoch   0 | Iter:     23/    30 | loss: 0.6774
+dev | epoch   0 | Iter:     24/    30 | loss: 0.7269
+dev | epoch   0 | Iter:     25/    30 | loss: 0.6617
+dev | epoch   0 | Iter:     26/    30 | loss: 0.6984
+dev | epoch   0 | Iter:     27/    30 | loss: 0.7720
+dev | epoch   0 | Iter:     28/    30 | loss: 0.6254
+dev | epoch   0 | Iter:     29/    30 | loss: 0.7015
+dev epoch 0:
+accuracy: 62.01
+train | epoch   1 | Iter:      0/    85 | loss: 0.6706 | lr: 1.0000e-05 | time: 0.687 avg_time: 0.687 | acc: 0.5714
+train | epoch   1 | Iter:      1/    85 | loss: 0.6487 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.598 | acc: 0.7143
+train | epoch   1 | Iter:      2/    85 | loss: 0.6718 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.568 | acc: 0.5714
+train | epoch   1 | Iter:      3/    85 | loss: 0.6751 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.553 | acc: 0.5714
+train | epoch   1 | Iter:      4/    85 | loss: 0.6706 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.544 | acc: 0.5714
+train | epoch   1 | Iter:      5/    85 | loss: 0.6419 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.538 | acc: 0.7857
+train | epoch   1 | Iter:      6/    85 | loss: 0.6721 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.533 | acc: 0.6429
+train | epoch   1 | Iter:      7/    85 | loss: 0.6686 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.536 | acc: 0.7857
+train | epoch   1 | Iter:      8/    85 | loss: 0.6463 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.533 | acc: 0.6429
+train | epoch   1 | Iter:      9/    85 | loss: 0.6407 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.530 | acc: 0.6429
+train | epoch   1 | Iter:     10/    85 | loss: 0.6495 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.528 | acc: 0.7143
+train | epoch   1 | Iter:     11/    85 | loss: 0.6863 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.526 | acc: 0.5714
+train | epoch   1 | Iter:     12/    85 | loss: 0.6432 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.525 | acc: 0.7143
+train | epoch   1 | Iter:     13/    85 | loss: 0.6747 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.524 | acc: 0.6429
+train | epoch   1 | Iter:     14/    85 | loss: 0.6268 | lr: 1.0000e-05 | time: 0.510 avg_time: 0.523 | acc: 0.6429
+train | epoch   1 | Iter:     15/    85 | loss: 0.7114 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.525 | acc: 0.4286
+train | epoch   1 | Iter:     16/    85 | loss: 0.6454 | lr: 1.0000e-05 | time: 0.513 avg_time: 0.524 | acc: 0.6429
+train | epoch   1 | Iter:     17/    85 | loss: 0.6679 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.523 | acc: 0.6429
+train | epoch   1 | Iter:     18/    85 | loss: 0.6306 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.522 | acc: 0.6429
+train | epoch   1 | Iter:     19/    85 | loss: 0.6731 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.522 | acc: 0.5714
+train | epoch   1 | Iter:     20/    85 | loss: 0.6931 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.521 | acc: 0.4286
+train | epoch   1 | Iter:     21/    85 | loss: 0.6786 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.520 | acc: 0.7143
+train | epoch   1 | Iter:     22/    85 | loss: 0.6518 | lr: 1.0000e-05 | time: 0.510 avg_time: 0.520 | acc: 0.8571
+train | epoch   1 | Iter:     23/    85 | loss: 0.6683 | lr: 1.0000e-05 | time: 0.555 avg_time: 0.521 | acc: 0.7857
+train | epoch   1 | Iter:     24/    85 | loss: 0.6999 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.521 | acc: 0.6429
+train | epoch   1 | Iter:     25/    85 | loss: 0.6737 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.520 | acc: 0.5714
+train | epoch   1 | Iter:     26/    85 | loss: 0.6510 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.520 | acc: 0.5714
+train | epoch   1 | Iter:     27/    85 | loss: 0.6565 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.519 | acc: 0.7143
+train | epoch   1 | Iter:     28/    85 | loss: 0.6511 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.519 | acc: 0.5714
+train | epoch   1 | Iter:     29/    85 | loss: 0.6535 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.518 | acc: 0.8571
+train | epoch   1 | Iter:     30/    85 | loss: 0.6487 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.518 | acc: 0.5000
+train | epoch   1 | Iter:     31/    85 | loss: 0.6767 | lr: 1.0000e-05 | time: 0.558 avg_time: 0.519 | acc: 0.7857
+train | epoch   1 | Iter:     32/    85 | loss: 0.6504 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.519 | acc: 0.6429
+train | epoch   1 | Iter:     33/    85 | loss: 0.6344 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.519 | acc: 0.7143
+train | epoch   1 | Iter:     34/    85 | loss: 0.6665 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.518 | acc: 0.2857
+train | epoch   1 | Iter:     35/    85 | loss: 0.6580 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.518 | acc: 0.5000
+train | epoch   1 | Iter:     36/    85 | loss: 0.6877 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.518 | acc: 0.5000
+train | epoch   1 | Iter:     37/    85 | loss: 0.6896 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.518 | acc: 0.4286
+train | epoch   1 | Iter:     38/    85 | loss: 0.6316 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.517 | acc: 0.7143
+train | epoch   1 | Iter:     39/    85 | loss: 0.7015 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.518 | acc: 0.7143
+train | epoch   1 | Iter:     40/    85 | loss: 0.6418 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.518 | acc: 0.7143
+train | epoch   1 | Iter:     41/    85 | loss: 0.6566 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.518 | acc: 0.5000
+train | epoch   1 | Iter:     42/    85 | loss: 0.6584 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.517 | acc: 0.6429
+train | epoch   1 | Iter:     43/    85 | loss: 0.6598 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.517 | acc: 0.6429
+train | epoch   1 | Iter:     44/    85 | loss: 0.6958 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.517 | acc: 0.3571
+train | epoch   1 | Iter:     45/    85 | loss: 0.6628 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.517 | acc: 0.3571
+train | epoch   1 | Iter:     46/    85 | loss: 0.6802 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.517 | acc: 0.5714
+train | epoch   1 | Iter:     47/    85 | loss: 0.6815 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.517 | acc: 0.7857
+train | epoch   1 | Iter:     48/    85 | loss: 0.6500 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.517 | acc: 0.7143
+train | epoch   1 | Iter:     49/    85 | loss: 0.6441 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.517 | acc: 0.6429
+train | epoch   1 | Iter:     50/    85 | loss: 0.6611 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.517 | acc: 0.7857
+train | epoch   1 | Iter:     51/    85 | loss: 0.6886 | lr: 1.0000e-05 | time: 0.510 avg_time: 0.517 | acc: 0.5000
+train | epoch   1 | Iter:     52/    85 | loss: 0.6589 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.517 | acc: 0.5714
+train | epoch   1 | Iter:     53/    85 | loss: 0.6249 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.516 | acc: 0.7857
+train | epoch   1 | Iter:     54/    85 | loss: 0.6747 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.516 | acc: 0.5714
+train | epoch   1 | Iter:     55/    85 | loss: 0.6618 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.517 | acc: 0.6429
+train | epoch   1 | Iter:     56/    85 | loss: 0.6717 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.517 | acc: 0.3571
+train | epoch   1 | Iter:     57/    85 | loss: 0.6283 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.517 | acc: 0.7857
+train | epoch   1 | Iter:     58/    85 | loss: 0.6762 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.516 | acc: 0.5000
+train | epoch   1 | Iter:     59/    85 | loss: 0.6713 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.516 | acc: 0.5000
+train | epoch   1 | Iter:     60/    85 | loss: 0.6762 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.516 | acc: 0.6429
+train | epoch   1 | Iter:     61/    85 | loss: 0.6861 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.516 | acc: 0.7143
+train | epoch   1 | Iter:     62/    85 | loss: 0.7125 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.516 | acc: 0.3571
+train | epoch   1 | Iter:     63/    85 | loss: 0.6604 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.517 | acc: 0.5714
+train | epoch   1 | Iter:     64/    85 | loss: 0.6586 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.516 | acc: 0.6429
+train | epoch   1 | Iter:     65/    85 | loss: 0.6933 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.516 | acc: 0.5714
+train | epoch   1 | Iter:     66/    85 | loss: 0.6471 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.516 | acc: 0.7857
+train | epoch   1 | Iter:     67/    85 | loss: 0.6676 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.516 | acc: 0.7143
+train | epoch   1 | Iter:     68/    85 | loss: 0.6696 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.516 | acc: 0.5000
+train | epoch   1 | Iter:     69/    85 | loss: 0.6697 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.516 | acc: 0.5714
+train | epoch   1 | Iter:     70/    85 | loss: 0.6836 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.516 | acc: 0.7143
+train | epoch   1 | Iter:     71/    85 | loss: 0.6368 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.516 | acc: 0.7857
+train | epoch   1 | Iter:     72/    85 | loss: 0.6590 | lr: 1.0000e-05 | time: 0.506 avg_time: 0.516 | acc: 0.7857
+train | epoch   1 | Iter:     73/    85 | loss: 0.6718 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.516 | acc: 0.7857
+train | epoch   1 | Iter:     74/    85 | loss: 0.6718 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.516 | acc: 0.6429
+train | epoch   1 | Iter:     75/    85 | loss: 0.6719 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.516 | acc: 0.6429
+train | epoch   1 | Iter:     76/    85 | loss: 0.6792 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.516 | acc: 0.4286
+train | epoch   1 | Iter:     77/    85 | loss: 0.6285 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.516 | acc: 0.6429
+train | epoch   1 | Iter:     78/    85 | loss: 0.6859 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.515 | acc: 0.7143
+train | epoch   1 | Iter:     79/    85 | loss: 0.6581 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.516 | acc: 0.3571
+train | epoch   1 | Iter:     80/    85 | loss: 0.6975 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.516 | acc: 0.5000
+train | epoch   1 | Iter:     81/    85 | loss: 0.6822 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.516 | acc: 0.6429
+train | epoch   1 | Iter:     82/    85 | loss: 0.6418 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.516 | acc: 0.5000
+train | epoch   1 | Iter:     83/    85 | loss: 0.6468 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.516 | acc: 0.5714
+train | epoch   1 | Iter:     84/    85 | loss: 0.6579 | lr: 1.0000e-05 | time: 0.130 avg_time: 0.511 | acc: 0.5000
+dev | epoch   1 | Iter:      0/    30 | loss: 0.6228
+dev | epoch   1 | Iter:      1/    30 | loss: 0.7533
+dev | epoch   1 | Iter:      2/    30 | loss: 0.6659
+dev | epoch   1 | Iter:      3/    30 | loss: 0.5684
+dev | epoch   1 | Iter:      4/    30 | loss: 0.7034
+dev | epoch   1 | Iter:      5/    30 | loss: 0.6124
+dev | epoch   1 | Iter:      6/    30 | loss: 0.6936
+dev | epoch   1 | Iter:      7/    30 | loss: 0.6666
+dev | epoch   1 | Iter:      8/    30 | loss: 0.5795
+dev | epoch   1 | Iter:      9/    30 | loss: 0.7434
+dev | epoch   1 | Iter:     10/    30 | loss: 0.6767
+dev | epoch   1 | Iter:     11/    30 | loss: 0.5125
+dev | epoch   1 | Iter:     12/    30 | loss: 0.5966
+dev | epoch   1 | Iter:     13/    30 | loss: 0.6453
+dev | epoch   1 | Iter:     14/    30 | loss: 0.6899
+dev | epoch   1 | Iter:     15/    30 | loss: 0.6731
+dev | epoch   1 | Iter:     16/    30 | loss: 0.6905
+dev | epoch   1 | Iter:     17/    30 | loss: 0.5790
+dev | epoch   1 | Iter:     18/    30 | loss: 0.5520
+dev | epoch   1 | Iter:     19/    30 | loss: 0.6971
+dev | epoch   1 | Iter:     20/    30 | loss: 0.7593
+dev | epoch   1 | Iter:     21/    30 | loss: 0.6518
+dev | epoch   1 | Iter:     22/    30 | loss: 0.6712
+dev | epoch   1 | Iter:     23/    30 | loss: 0.6886
+dev | epoch   1 | Iter:     24/    30 | loss: 0.7378
+dev | epoch   1 | Iter:     25/    30 | loss: 0.6578
+dev | epoch   1 | Iter:     26/    30 | loss: 0.6987
+dev | epoch   1 | Iter:     27/    30 | loss: 0.7962
+dev | epoch   1 | Iter:     28/    30 | loss: 0.6136
+dev | epoch   1 | Iter:     29/    30 | loss: 0.7166
+dev epoch 1:
+accuracy: 62.75
+train | epoch   2 | Iter:      0/    85 | loss: 0.6628 | lr: 1.0000e-05 | time: 0.693 avg_time: 0.693 | acc: 0.5714
+train | epoch   2 | Iter:      1/    85 | loss: 0.6415 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.600 | acc: 0.7143
+train | epoch   2 | Iter:      2/    85 | loss: 0.6565 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.570 | acc: 0.5714
+train | epoch   2 | Iter:      3/    85 | loss: 0.6835 | lr: 1.0000e-05 | time: 0.518 avg_time: 0.557 | acc: 0.5714
+train | epoch   2 | Iter:      4/    85 | loss: 0.6826 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.547 | acc: 0.6429
+train | epoch   2 | Iter:      5/    85 | loss: 0.6362 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.540 | acc: 0.8571
+train | epoch   2 | Iter:      6/    85 | loss: 0.6771 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.536 | acc: 0.6429
+train | epoch   2 | Iter:      7/    85 | loss: 0.6589 | lr: 1.0000e-05 | time: 0.557 avg_time: 0.538 | acc: 0.7857
+train | epoch   2 | Iter:      8/    85 | loss: 0.6524 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.535 | acc: 0.6429
+train | epoch   2 | Iter:      9/    85 | loss: 0.6440 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.532 | acc: 0.6429
+train | epoch   2 | Iter:     10/    85 | loss: 0.6505 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.530 | acc: 0.7143
+train | epoch   2 | Iter:     11/    85 | loss: 0.6831 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.528 | acc: 0.5714
+train | epoch   2 | Iter:     12/    85 | loss: 0.6409 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.527 | acc: 0.6429
+train | epoch   2 | Iter:     13/    85 | loss: 0.6644 | lr: 1.0000e-05 | time: 0.513 avg_time: 0.526 | acc: 0.6429
+train | epoch   2 | Iter:     14/    85 | loss: 0.6231 | lr: 1.0000e-05 | time: 0.510 avg_time: 0.525 | acc: 0.6429
+train | epoch   2 | Iter:     15/    85 | loss: 0.7145 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.527 | acc: 0.4286
+train | epoch   2 | Iter:     16/    85 | loss: 0.6491 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.526 | acc: 0.6429
+train | epoch   2 | Iter:     17/    85 | loss: 0.6510 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.525 | acc: 0.6429
+train | epoch   2 | Iter:     18/    85 | loss: 0.6275 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.524 | acc: 0.6429
+train | epoch   2 | Iter:     19/    85 | loss: 0.6747 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.523 | acc: 0.5000
+train | epoch   2 | Iter:     20/    85 | loss: 0.6912 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.522 | acc: 0.4286
+train | epoch   2 | Iter:     21/    85 | loss: 0.6767 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.522 | acc: 0.7143
+train | epoch   2 | Iter:     22/    85 | loss: 0.6433 | lr: 1.0000e-05 | time: 0.510 avg_time: 0.521 | acc: 0.8571
+train | epoch   2 | Iter:     23/    85 | loss: 0.6626 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.522 | acc: 0.7857
+train | epoch   2 | Iter:     24/    85 | loss: 0.7010 | lr: 1.0000e-05 | time: 0.514 avg_time: 0.522 | acc: 0.6429
+train | epoch   2 | Iter:     25/    85 | loss: 0.6638 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.522 | acc: 0.5000
+train | epoch   2 | Iter:     26/    85 | loss: 0.6465 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.521 | acc: 0.5714
+train | epoch   2 | Iter:     27/    85 | loss: 0.6577 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.521 | acc: 0.7857
+train | epoch   2 | Iter:     28/    85 | loss: 0.6542 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.520 | acc: 0.5714
+train | epoch   2 | Iter:     29/    85 | loss: 0.6532 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.520 | acc: 0.8571
+train | epoch   2 | Iter:     30/    85 | loss: 0.6319 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.519 | acc: 0.5000
+train | epoch   2 | Iter:     31/    85 | loss: 0.6654 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.521 | acc: 0.7857
+train | epoch   2 | Iter:     32/    85 | loss: 0.6466 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.520 | acc: 0.6429
+train | epoch   2 | Iter:     33/    85 | loss: 0.6316 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.520 | acc: 0.7143
+train | epoch   2 | Iter:     34/    85 | loss: 0.6571 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.519 | acc: 0.2857
+train | epoch   2 | Iter:     35/    85 | loss: 0.6587 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.519 | acc: 0.5000
+train | epoch   2 | Iter:     36/    85 | loss: 0.6759 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.519 | acc: 0.5000
+train | epoch   2 | Iter:     37/    85 | loss: 0.6849 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.519 | acc: 0.4286
+train | epoch   2 | Iter:     38/    85 | loss: 0.6257 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.518 | acc: 0.7143
+train | epoch   2 | Iter:     39/    85 | loss: 0.6861 | lr: 1.0000e-05 | time: 0.556 avg_time: 0.519 | acc: 0.7143
+train | epoch   2 | Iter:     40/    85 | loss: 0.6357 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.519 | acc: 0.7143
+train | epoch   2 | Iter:     41/    85 | loss: 0.6588 | lr: 1.0000e-05 | time: 0.508 avg_time: 0.519 | acc: 0.5000
+train | epoch   2 | Iter:     42/    85 | loss: 0.6554 | lr: 1.0000e-05 | time: 0.507 avg_time: 0.518 | acc: 0.6429
+train | epoch   2 | Iter:     43/    85 | loss: 0.6592 | lr: 1.0000e-05 | time: 0.509 avg_time: 0.518 | acc: 0.6429
+slurmstepd: error: *** JOB 159824 ON g0023 CANCELLED AT 2022-03-20T22:04:13 ***

@@ -14,6 +14,7 @@ from torch.utils.data import DataLoader
 from transformers import get_linear_schedule_with_warmup
 from torch.utils.data.distributed import DistributedSampler
 import torch.distributed as dist
+from torch.cuda.amp import autocast
 
 def add_args(parser: argparse.ArgumentParser):
     """Training arguments."""
@@ -86,7 +87,7 @@ def get_tokenizer(args):
     return tokenizer
 
 def get_model(args):
-    model = BertModel(args).cuda()
+    model = BertModel(args).cuda() #.to(dtype=torch.float16, device=dist.get_rank())
     return nn.parallel.DistributedDataParallel(model, device_ids=[torch.distributed.get_rank()])
 
 def get_optimizer(args, model):
@@ -141,7 +142,7 @@ def print_rank(s):
 
 def finetune(args, tokenizer, model, optimizer, lr_scheduler, dataset):
     loss_func = nn.CrossEntropyLoss(ignore_index=-100)
-
+    # scaler = torch.cuda.amp.GradScaler()
     for epoch in range(10):
         dataloader = {
             "train": prepare_dataloader(dataset['train'], batch_size=args.batch_size),
@@ -149,6 +150,7 @@ def finetune(args, tokenizer, model, optimizer, lr_scheduler, dataset):
         }
 
         model.train()
+        all_time = 0
         for it, data in enumerate(dataloader['train']):
             input_ids = data["input_ids"]
             attention_mask = data["attention_mask"]
@@ -158,10 +160,11 @@ def finetune(args, tokenizer, model, optimizer, lr_scheduler, dataset):
             st_time = time.time()
 
             optimizer.zero_grad()
-
-            logits = model(input_ids, attention_mask=attention_mask)
-            loss = loss_func(logits.view(-1, logits.shape[-1]), labels.view(-1))
-
+            # with autocast():
+            if True:
+                logits = model(input_ids, attention_mask=attention_mask)
+                loss = loss_func(logits.view(-1, logits.shape[-1]), labels.view(-1))
+            
             pd = logits.argmax(dim=-1).cpu().tolist()
             gt = labels.cpu().tolist()
 
@@ -169,22 +172,26 @@ def finetune(args, tokenizer, model, optimizer, lr_scheduler, dataset):
 
             # loss = optimizer.loss_scale(loss)
             loss = loss / args.grad_accumulation
+            # scaler.scale(loss).backward()
             loss.backward()
             if (it + 1) % args.grad_accumulation == 0:
                 optimizer.step()
+                # scaler.step(optimizer)
+                # scaler.update()
                 # lr_scheduler.step()
 
             torch.cuda.synchronize()
             elapsed_time = time.time() - st_time
-
+            all_time += elapsed_time
             print_rank(
-                "train | epoch {:3d} | Iter: {:6d}/{:6d} | loss: {:.4f} | lr: {:.4e} | time: {:.3f} | acc: {:.4f}".format(
+                "train | epoch {:3d} | Iter: {:6d}/{:6d} | loss: {:.4f} | lr: {:.4e} | time: {:.3f} avg_time: {:.3f} | acc: {:.4f}".format(
                     epoch,
                     it,
                     len(dataloader["train"]),
                     global_loss,
                     args.lr,
                     elapsed_time,
+                    all_time / (it + 1),
                     accuracy_score(gt, pd),
                 )
             )

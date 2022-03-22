@@ -4,7 +4,7 @@ MASTER_ADDR=localhost
 MASTER_PORT=6002
 NNODES=1
 NODE_RANK=0
-GPUS_PER_NODE=2
+GPUS_PER_NODE=8
 
 DISTRIBUTED_ARGS="--nproc_per_node $GPUS_PER_NODE \
                   --nnodes $NNODES \
@@ -13,14 +13,15 @@ DISTRIBUTED_ARGS="--nproc_per_node $GPUS_PER_NODE \
                   --master_port $MASTER_PORT"
 
 BASE_PATH="./"
-VERSION="bert-base-cased"
+#VERSION="bert-base-cased"
+VERSION="/data/home/scv0540/.cache/model_center/bert-base-cased/"
 DATASET="BoolQ"
 
 OPTS=""
 OPTS+=" --model-config ${VERSION}"
 OPTS+=" --base-path ${BASE_PATH}"
 OPTS+=" --dataset_name ${DATASET}"
-OPTS+=" --batch-size 64"
+OPTS+=" --batch-size 56"
 OPTS+=" --lr 0.0001"
 OPTS+=" --max-decoder-length 512"
 OPTS+=" --train-iters 1400"

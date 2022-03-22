@@ -78,7 +78,8 @@ class Encoder(torch.nn.Module):
         
         self.num_layers = num_layers
 
-        self.layers = bmt.TransformerBlockList([
+        # self.layers = bmt.TransformerBlockList([
+        self.layers = torch.nn.ModuleList([
             TransformerBlock(
                 dim_model = dim_model, 
                 dim_ff = dim_ff,
@@ -130,7 +131,9 @@ class Encoder(torch.nn.Module):
 
         """
         # (batch, seq_enc, dim_model)
-        hidden_states = self.layers(hidden_states, attention_mask, position_bias, None, None, None)
+        for layer in self.layers:
+            hidden_states = layer(hidden_states, attention_mask, position_bias, None, None, None)
+        # hidden_states = self.layers(hidden_states, attention_mask, position_bias, None, None, None)
         # (batch, seq_enc, dim_model)
         hidden_states = self.output_layernorm(hidden_states)
         return hidden_states

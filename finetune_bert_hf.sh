@@ -4,7 +4,7 @@ MASTER_ADDR=localhost
 MASTER_PORT=6002
 NNODES=1
 NODE_RANK=0
-GPUS_PER_NODE=2
+GPUS_PER_NODE=8
 
 DISTRIBUTED_ARGS="--nproc_per_node $GPUS_PER_NODE \
                   --nnodes $NNODES \
@@ -13,14 +13,15 @@ DISTRIBUTED_ARGS="--nproc_per_node $GPUS_PER_NODE \
                   --master_port $MASTER_PORT"
 
 BASE_PATH="./"
-VERSION="bert-base-cased"
-DATASET="ReCoRD"
+#VERSION="bert-base-cased"
+VERSION="/data/home/scv0540/xcj/PLMs/bert-large-uncased"
+DATASET="BoolQ"
 
 OPTS=""
 OPTS+=" --model-version ${VERSION}"
 OPTS+=" --base-path ${BASE_PATH}"
 OPTS+=" --dataset_name ${DATASET}"
-OPTS+=" --batch-size 8"
+OPTS+=" --batch-size 11"
 OPTS+=" --grad-accumulation 8"
 OPTS+=" --lr 0.00001"
 OPTS+=" --max-length 512"
